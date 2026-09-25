@@ -1,37 +1,24 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies</title>
-</head>
+@extends('layouts.app')
 
-<body>
+@section('content')
 
-    <h1>Movies</h1>
-    @foreach ($movies as $movie)
-        <div>
-            <h2>{{ $movie->title }}</h2>
-            <p>
-                Titolo originale:
-                {{ $movie->original_title }}
-            </p>
+    <h1>Lista Film</h1>
 
-            <p>
-                Nazionalità:
-                {{ $movie->nationality }}
-            </p>
+    <div class="movies-container">
 
-            <p>
-                Data:
-                {{ $movie->date }}
-            </p>
+        @foreach ($movies as $movie)
 
-            <p>
-                Voto:
-                {{ $movie->vote }}
-            </p>
-        </div>
-    @endforeach
-</body>
-</html>
+            <div class="movie-card">
+                <h2>{{ $movie->title }}</h2>
+
+                <p><strong>Titolo originale:</strong> {{ $movie->original_title }}</p>
+                <p><strong>Nazionalità:</strong> {{ $movie->nationality }}</p>
+                <p><strong>Data:</strong> {{ $movie->date }}</p>
+                <p><strong>Voto:</strong> {{ $movie->vote }}</p>
+            </div>
+
+        @endforeach
+
+    </div>
+
+@endsection
